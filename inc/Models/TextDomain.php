@@ -1,18 +1,18 @@
 <?php # -*- coding: utf-8 -*-
 
-namespace tf\ExternalContent\Models;
+namespace tfrommen\ExternalContent\Models;
 
 /**
- * Class TextDomain
+ * Text domain model.
  *
- * @package tf\ExternalContent\Models
+ * @package tfrommen\ExternalContent\Models
  */
 class TextDomain {
 
 	/**
 	 * @var string
 	 */
-	private $domain = 'external-content';
+	private $domain;
 
 	/**
 	 * @var string
@@ -22,12 +22,16 @@ class TextDomain {
 	/**
 	 * Constructor. Set up the properties.
 	 *
-	 * @param string $file Main plugin file.
+	 * @param string $file   Main plugin file.
+	 * @param string $domain Text domain name.
+	 * @param string $path   Text domain path.
 	 */
-	public function __construct( $file ) {
+	public function __construct( $file, $domain, $path ) {
+
+		$this->domain = $domain;
 
 		$this->path = plugin_basename( $file );
-		$this->path = dirname( $this->path ) . '/languages';
+		$this->path = dirname( $this->path ) . $path;
 	}
 
 	/**

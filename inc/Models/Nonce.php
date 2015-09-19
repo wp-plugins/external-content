@@ -1,11 +1,11 @@
 <?php # -*- coding: utf-8 -*-
 
-namespace tf\ExternalContent\Models;
+namespace tfrommen\ExternalContent\Models;
 
 /**
- * Class Nonce
+ * Nonce model.
  *
- * @package tf\ExternalContent\Models
+ * @package tfrommen\ExternalContent\Models
  */
 class Nonce {
 
@@ -29,7 +29,7 @@ class Nonce {
 
 		$this->action = $action;
 
-		$this->name = empty( $name ) ? $action . '_nonce' : $name;
+		$this->name = empty( $name ) ? "{$action}_nonce" : $name;
 	}
 
 	/**
@@ -92,7 +92,7 @@ class Nonce {
 	 */
 	public function print_field( $action = '', $referer = TRUE ) {
 
-		$this->get_field( $action, $this->name, $referer, TRUE );
+		$this->get_field( $action, $referer, TRUE );
 	}
 
 	/**
@@ -114,7 +114,7 @@ class Nonce {
 			$nonce = $_REQUEST[ $this->name ];
 		}
 
-		$action = $action === '' ? $this->action : $action;
+		$action = empty( $action ) ? $this->action : $action;
 
 		return wp_verify_nonce( $nonce, $action );
 	}

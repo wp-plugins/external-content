@@ -1,11 +1,11 @@
 <?php # -*- coding: utf-8 -*-
 
-namespace tf\Autoloader;
+namespace tfrommen\Autoloader;
 
 /**
- * Class Autoloader
+ * Autoloader class.
  *
- * @package tf\Autoloader
+ * @package tfrommen\Autoloader
  */
 class Autoloader {
 
@@ -31,7 +31,7 @@ class Autoloader {
 	 */
 	public function add_rule( Rule $rule ) {
 
-		$this->rules[ ] = $rule;
+		$this->rules[] = $rule;
 	}
 
 	/**

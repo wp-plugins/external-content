@@ -1,11 +1,11 @@
 <?php # -*- coding: utf-8 -*-
 
-namespace tf\ExternalContent\Models;
+namespace tfrommen\ExternalContent\Models;
 
 /**
- * Class Post
+ * Post model.
  *
- * @package tf\ExternalContent\Models
+ * @package tfrommen\ExternalContent\Models
  */
 class Post {
 
@@ -27,9 +27,9 @@ class Post {
 	 */
 	public function __construct( PostType $post_type, MetaBox $meta_box ) {
 
-		$this->meta_key = $meta_box->get_meta_key();
-
 		$this->post_type = $post_type->get_post_type();
+
+		$this->meta_key = $meta_box->get_meta_key();
 	}
 
 	/**
